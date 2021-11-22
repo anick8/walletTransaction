@@ -1,49 +1,28 @@
+﻿
+# Hashx ContentPermission CUD Microservice
 
-# Hashx Follow CUD Microservice
+Microservice to implement ContentPermission Table Create Update and Delete operations.
 
-Microservice to implement Follow Table Create Update and Delete operations.
-
-Run using - 
-npm install 
-npm start 
-(OR)
-node index.js
+Run using - npm install npm start (OR) node index.js
 
 # Routes
 
-## /createFollow
+## /transferTokens
 
-Creates a new Follow : 
+Creates a Wallet Transaction :
 
-Request Body - 
- - req.body.Follower : IdentityUUID of Follower
- - req.body.Following : IdentityUUID of Following
+Request Body -
+-req.body.Amount : Amount to be sent   
+- req.body.FromWalletUUID : UUID of the wallet from which the amount is sent
+- req.body.ToWalletUUID : UUID of the wallet to which the amount is sent
+- req.body.ToWalletType : Type of the Wallet sent to
+-   req.body.ToUsername : Username of the Wallet sent to.
+-   req.body.TransactionStatus : status of the transaction.
+- req.body.,TransactionType : Type of Transaction
+- req.body.Note : Additional note that contains the transaction details
 
-
-
- *Optional Arguments 
- 
 Response Body -
-- res.data.Following
-
-Query : Insert into "Follow" ("Follower","Following") 
-
-
-
-
-## /deleteFollow
-
-Deletes Follow row : 
-Request Body - 
- - req.body.Follower : IdentityUUID of Follower
- - req.body.Following : IdentityUUID of Following
-
- Response Body -
-- res.data.Follower
-- res.data.Following
-
-
-Query : delete from "Follow" where "Follower"= $1 AND "Following"=$2
+{'Balance', 'FromWalletUUID' , 'ToWalletUUID', 'TransactionUUID'}
 
 
 
@@ -51,12 +30,8 @@ Query : delete from "Follow" where "Follower"= $1 AND "Following"=$2
 
 [err,data,msg]
 
- - err : Error message from SQL try block
- - data : Data returned by SQL query
- - msg : Custom message defined in API
+-   err : Error message from SQL try block
+-   data : Data returned by SQL query
+-   msg : Custom message defined in API
 
-
-
-
-
-
+> Written with [StackEdit](https://stackedit.io/).
